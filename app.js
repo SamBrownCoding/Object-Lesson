@@ -32,7 +32,7 @@ favoriteCharacter.paintingSkills = "HE WAS SO GOOOD!";
 console.log(favoriteCharacter.paintingSkills);
 
 //objects can store functions
-function quoter(){
+function quoter() {
     let quote = "There are no mistakes only happy accidents."
     return quote
 }
@@ -70,7 +70,7 @@ console.log(`${listOfMusic[1]} will return object object`);
 
 //! Personal Contact Book
 //? Create a simple contact book where you can add, view, and search for contacts by name.
- 
+
 //TODO Define a Contact Object: Each contact should be represented as an object with properties like name, phone number, and email.
 let contact = {
     fName: "Bryan",
@@ -88,11 +88,11 @@ function addContact(newContact) {
 }
 
 function DisplayContact() {
-    
+
     listCount = 0;
     console.log("Contact List:");
     //FOR OF WAY
-    for (let c of contacts){
+    for (let c of contacts) {
         listCount++;
         console.log(`${listCount}. ${c.fName} ${c.lName}\n\t\tMobile: ${c.phone}\n\t\tEmail: ${c.email} `);
     }
@@ -101,9 +101,9 @@ function DisplayContact() {
     //console.log(`${listCount}. ${contacts[i].fName} ${contacts[i].lName}\n\t\tMobile: ${contacts[i].phone}\n\t\tEmail: ${contacts[i].email} `);
 }
 
-function SearchContact(name){
+function SearchContact(name) {
     for (let c of contacts) {
-        if (c.fName.toLowerCase() === name.toLowerCase() || c.lName.toLowerCase() === name.toLowerCase()){
+        if (c.fName.toLowerCase() === name.toLowerCase() || c.lName.toLowerCase() === name.toLowerCase()) {
             console.log(`Found Contact: ${c.fName} ${c.lName} - Mobile: ${c.phone} - Email: ${c.email}`);
             return;
         }
@@ -113,7 +113,7 @@ function SearchContact(name){
 
 //* Output Results: Use console.log to display the contacts and search results.
 
-addContact({fName: "Nicole", lName: "Stabber", phone: "123-456-7890", email: "Stabber69@yahoo.com"});
+addContact({ fName: "Nicole", lName: "Stabber", phone: "123-456-7890", email: "Stabber69@yahoo.com" });
 DisplayContact();
 SearchContact("stabber");
 
@@ -121,7 +121,7 @@ SearchContact("stabber");
 
 //! Student Grade Management
 //? Create a program to manage student grades, where you can calculate the average grade for the class and identify students who need to improve.
- 
+
 //TODO Predefine Student Objects: Each student should be an object with properties like name and grade, stored inside an array.
 let students = [
     { name: "Alice", grade: 85 },
@@ -129,46 +129,87 @@ let students = [
     { name: "Charlie", grade: 92 },
     { name: "David", grade: 63 },
     { name: "Eve", grade: 78 }
-  ];
- 
-  //TODO Calculate Average Grade: Write a function to calculate the average grade of the class.
-  let resultAverage = ClassCalAverage(students);
+];
 
-function ClassCalAverage(classRage){
-let sum = 0;
+//TODO Calculate Average Grade: Write a function to calculate the average grade of the class.
+let resultAverage = ClassCalAverage(students);
 
-for (let i = 0; i < classRage.length; i++ ){
-    sum += classRage[i].grade;
-}
-return sum / classRage.length;
+function ClassCalAverage(classRage) {
+    let sum = 0;
+
+    for (let i = 0; i < classRage.length; i++) {
+        sum += classRage[i].grade;
+    }
+    return sum / classRage.length;
 }
 console.log(`Average Grade in class: ${resultAverage}`);
 
 //TODO Identify Students Below Average: Write a function to find and list students with grades below the class average.
- BelowAverage(resultAverage);
+BelowAverage(resultAverage);
 
 function BelowAverage(failure) {
-    for (let i = 0; i < students.length; i++){
+    for (let i = 0; i < students.length; i++) {
         if (students[i].grade < failure) {
             console.log(students[i].name + "- Grade: " + students[i].grade);
         }
     }
 }
- 
- 
+
+
 //! Movie Collection Tracker
 //? Create a program that allows you to manage a collection of movies, including adding movies, rating them, and viewing your collection.
- 
+
 //TODO Define a Movie Object: Each movie should be represented as an object with properties like title, genre, and rating.
+let movie = {
+    title: "Dune",
+    genre: "Science Fiction",
+    rating: 9.5
+};
 //TODO Store Movies in an Array: Use an array to store multiple movie objects.
+let movies = [movie]
+
 //TODO Create Functions: Create functions to add a movie, rate a movie, and view your entire collection.
+function addMovies(add) {
+    movies.push(add);
+    console.log("Movie added");
+}
+
+function DisplayMovie() {
+    listCount = 0;
+    console.log("Movies List:");
+    //FOR OF WAY
+    for (let m of movies) {
+        listCount++;
+        console.log(`${listCount}. ${m.title}\n\t Genre: ${m.genre}\n\t Rating: ${m.rating} `);
+    }
+}
+
+function MovieRate(movie, rate) {
+    for (let m of movies) {
+        if (m.title.toLowerCase() === movie.toLowerCase() || m.title.toLowerCase() === movie.toLowerCase()) {
+            m.rating = rate;
+            console.log(`Movie: ${m.title}\nUpdate Rating: ${m.rating}`);
+            return;
+        }
+    }
+    console.log("ERROR: Movie cannot be found");
+
+}
+
+
 //* Output Results: Use console.log to display the movie collection and ratings.
- 
- 
+addMovies({ title: "Star War", genre: "Science Fiction", rating: 7 })
+DisplayMovie();
+MovieRate("Dune", 5);
+DisplayMovie();
+
+
+
+
 //! Library Book Tracker
 //? Create a program to manage a small library, where you can check which books are available or borrowed, and filter the books by their status.
- 
- 
+
+
 //TODO Predefine Book Objects: Each book should be an object with properties like title and status (available or borrowed), stored inside an array.
 let books = [
     { title: "The Great Gatsby", status: "available" },
@@ -176,6 +217,32 @@ let books = [
     { title: "To Kill a Mockingbird", status: "available" },
     { title: "The Catcher in the Rye", status: "borrowed" },
     { title: "Moby-Dick", status: "available" }
-  ];
+];
 //TODO Filter Available Books: Write a function to list all available books.
+AvailableBook();
+function AvailableBook() {
+    bookCount = 0;
+    console.log("Book Available: ");
+    for (let i = 0; i < books.length; i++) {
+        if (books[i].status === "available") {
+            bookCount++;
+            console.log(`${bookCount}.` + books[i].title);
+        }
+    }
+
+}
+
 //TODO Filter Borrowed Books: Write a function to list all borrowed books
+console.log();
+BorrowedBook();
+function BorrowedBook() {
+    bookCount = 0;
+    console.log("Book Borrowed: ");
+    for (let i = 0; i < books.length; i++) {
+        if (books[i].status === "borrowed") {
+            bookCount++;
+            console.log(`${bookCount}.` + books[i].title);
+        }
+
+    }
+}
