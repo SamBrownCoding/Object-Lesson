@@ -246,3 +246,134 @@ function BorrowedBook() {
 
     }
 }
+
+//PROBLEM MORE WORK
+
+//! Recipe Organizer
+//? Create a program to manage recipes, where some recipes are predefined, and the user can add or update recipes.
+
+//TODO  Each recipe should have properties like title, ingredients (an array of strings), and instructions.
+let recipes = [
+    { title: "Pancakes", ingredients: ["Flour", "Eggs", "Milk"], instructions: "Mix and cook on a griddle." },
+    { title: "Salad", ingredients: ["Lettuce", "Tomatoes", "Cucumbers"], instructions: "Chop and toss with dressing." }
+  ];
+//TODO Add a New Recipe: Allow the user to input a new recipe's title, ingredients, and instructions, then add it to the list.
+function AddRecipe(newRecipe){
+    recipes.push(newRecipe);
+    console.log("New Recipie Added");
+}
+//TODO Update Recipe Instructions: Enable the user to update the instructions of an existing recipe.
+function UpdateRecipe(title, info) {
+    for (let r of recipes) {
+        if (r.title.toLowerCase() === title.toLowerCase() || r.title.toLowerCase() === title.toLowerCase()) {
+            r.instructions = info;
+            console.log(`Recipe: ${r.title}\nUpdate Instruction: ${r.instructions}`);
+            return;
+        }
+    }
+    console.log("ERROR: Recipe cannot be found");
+
+}
+
+//* Display All Recipes: Write a function to display all recipes with their details.
+function DisplayRecipe() {
+    recipeCount = 0;
+    console.log("Recipes List:");
+    //FOR OF WAY
+    for (let r of recipes) {
+        recipeCount++;
+        console.log(`${recipeCount}. ${r.title}\n\t Ingredients: ${r.ingredients}\n\t Instructions: ${r.instructions} `);
+    }
+}
+
+
+
+AddRecipe({title: "Milkshake", ingredients: ["Ice Cream", "Milk"], instructions: "Mix them in blender then pour in a cup to drink."})
+console.log();
+DisplayRecipe();
+console.log();
+UpdateRecipe("milkshake", "Mix them in the blender and drink from it!");
+console.log();
+DisplayRecipe();
+
+
+//! Car Dealership Inventory
+//? Create a program to manage a car dealership inventory, where some cars are predefined, and the user can add or update car details.
+//TODO Each car should have properties like make, model, year, and price.
+let cars = [
+    { make: "Toyota", model: "Camry", year: 2020, price: 24000 },
+    { make: "Honda", model: "Civic", year: 2019, price: 22000 }
+  ];
+
+//TODO Add a New Car: Allow the user to input a new car's make, model, year, and price, then add it to the inventory.
+function addNewCar(newCar){
+    cars.push(newCar);
+    console.log("New Car added in Inventory");
+}
+//TODO Update Car Price: Enable the user to update the price of an existing car.
+function UpdateCar(model, price){
+    console.log("Update Car Prices");
+    for (let c of cars) {
+        if (c.model.toLowerCase() === model.toLowerCase() || c.model.toLowerCase() === model.toLowerCase()) {
+            c.price = price;
+            console.log(`Model: ${c.model}\nUpdate price: $${c.price}`);
+            return;
+        }
+    }
+    console.log("ERROR: Model cannot be found");
+
+};
+
+//* Display All Cars: Write a function to display all cars in the inventory.
+function CarInventory(){
+    carCount = 0;
+    console.log("Car Inventory List:");
+    //FOR OF WAY
+    for (let c of cars) {
+        carCount++;
+        console.log(`${carCount}. ${c.make}\n\t Model: ${c.model}\n\t Price: $${c.price} `);
+    }
+}
+CarInventory();
+console.log();
+addNewCar({make: "Ford", model: "Mustang", year: 2021, price: 30000});
+console.log();
+UpdateCar("civic", 15000)
+console.log();
+CarInventory();
+
+
+
+
+
+
+//! Pet Names with Details
+//TODO Create a program that manages a list of pet names, where each pet has a name, type (e.g., dog, cat), and age.
+let pets = [
+    {name: "Zeke", type: "dog", age: 5},
+    {name: "Cleo", type: "cat", age: 15}
+];
+
+//TODOEach object should contain name, type, and age.
+
+//TODO  Add a New Pet: Allow the user to input a new pet's name, type, and age, then add it to the list.
+function AddPet(newPet){
+    pets.push(newPet);
+    console.log("New Pet added");
+}
+
+
+//* Display All Pet Names: Write a function to display all pets with their details.
+function ShowOffPet(){
+    petCount = 0;
+    console.log("Pet list: ");
+    for (let p of pets){
+        petCount++;
+        console.log(`${petCount}. ${p.name}\n\t Type: ${p.type}\n\t Age: ${p.age} `);
+    }
+}
+
+ShowOffPet();
+AddPet({name: "Pumpkin", type: "cat", age: 6})
+console.log();
+ShowOffPet();
