@@ -86,6 +86,16 @@ function addContact(newContact) {
     contacts.push(newContact);
     console.log("Contact Added Success");
 }
+/*
+function addContact(contactName, contactPhone, contactEmail){
+    let contactObject = {
+        fname: contactName,
+        phone: contactPhone,
+        email: contactEmail
+    }
+    console.log(contactObject)
+}
+    */
 
 function DisplayContact() {
 
@@ -377,3 +387,26 @@ ShowOffPet();
 AddPet({name: "Pumpkin", type: "cat", age: 6})
 console.log();
 ShowOffPet();
+
+//FACTORY AS Manufacture!
+function Factory(client){
+    console.log(`${client} want 24 chocolate truffles at the home!`)
+};
+
+
+//^^^Email to FACTORY!!^^^
+
+//CUSTOMER
+let customer = "Nicole";
+//Factory as Storefront     Nicole as client
+Factory(customer);
+
+
+//vvvvSHIPPING ARRIVE TO NICOLE HOME WITH CHOCOLATE vvvv
+
+function Home(happy){
+    console.log(`${happy} is happy to have a chocolate truffles!!`);
+}
+
+Home(customer);
+
